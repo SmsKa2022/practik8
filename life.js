@@ -13,8 +13,8 @@ const app = express();
 
 app.set('view engine', 'hbs');
 app.set('cookieName', 'sid');
-app.set('views', path.join(process.env.PWD, './handlebars'));
-hbs.registerPartials(path.join(process.env.PWD, './handlebars'));
+app.set('views', './handlebars');
+hbs.registerPartials('./handlebars');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname)));
 app.use(express.json()); // для распознавания входящего объекта запроса как объекта JSON
