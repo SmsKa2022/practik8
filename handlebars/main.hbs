@@ -1,0 +1,50 @@
+ <!DOCTYPE html>
+        <html lang="ru">
+        <head>
+            <meta charset="UTF-8">
+            <title>Сергиевская М.С. Воспитатель ГПД</title>
+            <link rel="stylesheet" href="life.css">
+        </head>
+        <body>
+        {{>header}}
+        
+        {{#if name}}
+            Здравствуйте, {{name}}
+        {{/if}}
+        <section class="form">
+            <div class="form__containter">
+                <h1>Добавить новую статью</h1>
+                <form action="/addPost" method="post">
+                    <div class="form__group">
+                        <label for="title">Заголовок</label>
+                        <input name="title" id="title" type="text" placeholder="Придумайте свой заголовок для статьи">
+                        <br><label for="text">Текст статьи</label>
+                        <textarea id="text" name="text"placeholder="Текст вашей статьи"></textarea>
+                        <br><label for="image">Ссылка на картинку </label>
+                        <input id="image" name="image" placeholder="Введите ссылку на картинку"></input>
+                        <br><label for="tag">Tag</label>
+                        <input id="tag" name="tag"placeholder="Введите tag"></input>
+                    </div>
+                    <button type="submit" class="form__submit">Отправить</button>
+                </form>
+            </div>
+        </section>  
+        <div class="section d-flex ">
+    {{#each list}}
+    <div class="features__border">
+            <div class="features__feedback">
+                <div class="features__feedback-right">
+                    <div class="features__box features__savings-box">
+                        <h3>{{this.title}}</h3>
+                        <img style="max-width: 90%" src={{this.image}} alt="картинка">
+                        <p>{{this.text}}</p>
+                        <button type="button" onClick = "<script> console.log(this) </script>">Удалить пост</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    
+    {{/each}}
+</div>      
+    
